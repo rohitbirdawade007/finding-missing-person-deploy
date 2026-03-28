@@ -1,0 +1,54 @@
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ───────────────────────────────────────
+venv/
+env/
+.venv/
+ENV/
+
+# ── Environment variables (NEVER commit secrets) ───────────────
+.env
+*.env
+!.env.example
+
+# ── Uploaded files (binary, user data — not for git) ──────────
+backend/uploads/
+
+# ── AI model weights (large files) ────────────────────────────
+*.pt
+*.pth
+*.h5
+*.weights
+*.onnx
+model_weights/
+
+# ── Node / Frontend ───────────────────────────────────────────
+node_modules/
+dist/
+.next/
+.nuxt/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── IDE / OS ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── DeepFace cache (downloaded model weights) ─────────────────
+.deepface/

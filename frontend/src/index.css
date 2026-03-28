@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060b18;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Cyber grid background ────────────────────────────────────── */
+.cyber-bg {
+  background-color: #060b18;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Glassmorphism card ───────────────────────────────────────── */
+.glass-card {
+  background: rgba(13, 21, 38, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 58, 95, 0.6);
+  border-radius: 12px;
+}
+
+/* ── Neon glow text ──────────────────────────────────────────── */
+.glow-text {
+  text-shadow:
+    0 0 10px rgba(0, 212, 255, 0.8),
+    0 0 20px rgba(0, 212, 255, 0.4),
+    0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+.glow-text-purple {
+  text-shadow:
+    0 0 10px rgba(124, 58, 237, 0.8),
+    0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+/* ── Cyber button ────────────────────────────────────────────── */
+.btn-cyber {
+  @apply relative inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(59, 130, 246, 0.15));
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+}
+.btn-cyber:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(59, 130, 246, 0.25));
+  border-color: rgba(0, 212, 255, 0.8);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-solid {
+  @apply relative inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+  background: linear-gradient(135deg, #00d4ff, #3b82f6);
+  color: #060b18;
+}
+.btn-solid:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  @apply relative inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+.btn-danger:hover {
+  border-color: rgba(239, 68, 68, 0.8);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* ── Cyber input ─────────────────────────────────────────────── */
+.cyber-input {
+  @apply w-full px-4 py-3 rounded-lg text-cyber-text placeholder-cyber-muted transition-all duration-300 outline-none;
+  background: rgba(6, 11, 24, 0.8);
+  border: 1px solid rgba(30, 58, 95, 0.8);
+  font-family: 'Inter', sans-serif;
+}
+.cyber-input:focus {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+}
+
+/* ── Stat card ───────────────────────────────────────────────── */
+.stat-card {
+  @apply glass-card p-6 flex flex-col gap-2 transition-all duration-300 cursor-default;
+}
+.stat-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Alert badge ─────────────────────────────────────────────── */
+.badge-pending {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #f59e0b;
+}
+.badge-solved {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+/* ── Scan line animation ─────────────────────────────────────── */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  animation: scan 3s linear infinite;
+  pointer-events: none;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d1526; }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #00d4ff44; }
+
+/* ── Navbar link active ──────────────────────────────────────── */
+.nav-link {
+  @apply relative text-cyber-muted hover:text-cyber-cyan transition-colors duration-200 text-sm font-medium;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px;
+  background: #00d4ff;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { transform: scaleX(1); }
+.nav-link.active { color: #00d4ff; }
